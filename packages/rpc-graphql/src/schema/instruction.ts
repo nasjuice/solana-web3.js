@@ -741,6 +741,19 @@ export const instructionTypeDefs = /* GraphQL */ `
         signers: [Address]
     }
 
+    """
+    SplToken-2022: ConfigureConfidentialTransferAccount instruction
+    """
+    type SplTokenConfigureConfidentialTransferAccount implements TransactionInstruction {
+        programId: Address
+        account: Account
+        mint: Account
+        decryptableZeroBalance: String
+        maximumPendingBalanceCreditCounter: BigInt
+        multisigOwner: Account
+        signers: [Address]
+    }
+
     # TODO: Extensions!
     # ...
 

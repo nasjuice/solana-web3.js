@@ -1896,6 +1896,61 @@ describe('transaction', () => {
                     },
                 });
             });
+
+            it('configure-confidential-transfer-account', async () => {
+                expect.assertions(1);
+                const source = /* GraphQL */ `
+                    query testQuery($signature: Signature!) {
+                        transaction(signature: $signature) {
+                            message {
+                                instructions {
+                                    programId
+                                    ... on SplTokenConfigureConfidentialTransferAccount {
+                                        account {
+                                            address
+                                        }
+                                        mint {
+                                            address
+                                        }
+                                        multisigOwner {
+                                            address
+                                        }
+                                        decryptableZeroBalance
+                                        maximumPendingBalanceCreditCounter
+                                        signers
+                                    }
+                                }
+                            }
+                        }
+                    }
+                `;
+                const result = await rpcGraphQL.query(source, { signature });
+                expect(result).toMatchObject({
+                    data: {
+                        transaction: {
+                            message: {
+                                instructions: expect.arrayContaining([
+                                    {
+                                        account: {
+                                            address: expect.any(String),
+                                        },
+                                        mint: {
+                                            address: expect.any(String),
+                                        },
+                                        multisigOwner: {
+                                            address: expect.any(String),
+                                        },
+                                        decryptableZeroBalance: expect.any(String),
+                                        maximumPendingBalanceCreditCounter: expect.any(BigInt),
+                                        signers: expect.arrayContaining([expect.any(String)]),
+                                        programId: 'TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb',
+                                    },
+                                ]),
+                            },
+                        },
+                    },
+                });
+            });
         });
     });
 });

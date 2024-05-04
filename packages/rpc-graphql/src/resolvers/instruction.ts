@@ -387,6 +387,11 @@ export const instructionResolvers = {
         multisigWithdrawWithheldAuthority: resolveAccount('multisigWithdrawWithheldAuthority'),
         withdrawWithheldAuthority: resolveAccount('withdrawWithheldAuthority'),
     },
+    SplTokenConfigureConfidentialTransferAccount: {
+        account: resolveAccount('account'),
+        mint: resolveAccount('mint'),
+        multisigOwner: resolveAccount('multisigOwner'),
+    },
     StakeAuthorizeCheckedInstruction: {
         authority: resolveAccount('authority'),
         clockSysvar: resolveAccount('clockSysvar'),
@@ -691,6 +696,9 @@ export const instructionResolvers = {
                     }
                     if (jsonParsedConfigs.instructionType === 'disableRequiredMemoTransfers') {
                         return 'SplTokenDisableRequiredMemoTransfers';
+                    }
+                    if (jsonParsedConfigs.instructionType === 'configureConfidentialTransferAccount') {
+                        return 'SplTokenConfigureConfidentialTransferAccount';
                     }
                 }
                 if (jsonParsedConfigs.programName === 'stake') {
