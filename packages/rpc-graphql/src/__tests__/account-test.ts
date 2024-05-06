@@ -1423,6 +1423,37 @@ describe('account', () => {
                     },
                 });
             });
+
+            it('default-account-state', async () => {
+                expect.assertions(1);
+                const source = /* GraphQL */ `
+                    query testQuery($address: Address!) {
+                        account(address: $address) {
+                            ... on MintAccount {
+                                extensions {
+                                    ... on SplToken2022ExtensionDefaultAccountState {
+                                        accountState
+                                        extension # Interface field
+                                    }
+                                }
+                            }
+                        }
+                    }
+                `;
+                const result = await rpcGraphQL.query(source, { address: megaMintAddress });
+                expect(result).toMatchObject({
+                    data: {
+                        account: {
+                            extensions: expect.arrayContaining([
+                                {
+                                    accountState: expect.any(String),
+                                    extension: 'defaultAccountState',
+                                },
+                            ]),
+                        },
+                    },
+                });
+            });
         });
     });
 });

@@ -41,6 +41,20 @@ export const accountTypeDefs = /* GraphQL */ `
         extension: String
     }
 
+    enum SplToken2022DefaultAccountState {
+        FROZEN
+        INITIALIZED
+        UNINITIALIZED
+    }
+
+    """
+    Token-2022: Default Account State
+    """
+    type SplToken2022ExtensionDefaultAccountState implements SplToken2022Extension {
+        extension: String
+        accountState: SplToken2022DefaultAccountState
+    }
+
     """
     Account interface
     """

@@ -220,6 +220,9 @@ function resolveToken2022ExtensionType(extensionResult: Token2022ExtensionResult
     if (extensionResult.extension === 'permanentDelegate') {
         return 'SplToken2022ExtensionPermanentDelegate';
     }
+    if (extensionResult.extension === 'defaultAccountState') {
+        return 'SplToken2022ExtensionDefaultAccountState';
+    }
 }
 
 export const accountResolvers = {
