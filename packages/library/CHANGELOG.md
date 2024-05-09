@@ -1,5 +1,30 @@
 # @solana/web3.js-experimental
 
+## 2.0.0-preview.4
+
+### Patch Changes
+
+- [#2606](https://github.com/solana-labs/solana-web3.js/pull/2606) [`367b8ad`](https://github.com/solana-labs/solana-web3.js/commit/367b8ad0cce55a916abfb0125f36b6e844333b2b) Thanks [@lorisleiva](https://github.com/lorisleiva)! - Use commonjs package type
+
+- Updated dependencies [[`3d90241`](https://github.com/solana-labs/solana-web3.js/commit/3d902419c1b232fa7145757b9c95976de69790c7), [`367b8ad`](https://github.com/solana-labs/solana-web3.js/commit/367b8ad0cce55a916abfb0125f36b6e844333b2b)]:
+  - @solana/transaction-messages@2.0.0-preview.4
+  - @solana/transaction-confirmation@2.0.0-preview.4
+  - @solana/rpc-subscriptions@2.0.0-preview.4
+  - @solana/rpc-parsed-types@2.0.0-preview.4
+  - @solana/instructions@2.0.0-preview.4
+  - @solana/transactions@2.0.0-preview.4
+  - @solana/functional@2.0.0-preview.4
+  - @solana/addresses@2.0.0-preview.4
+  - @solana/rpc-types@2.0.0-preview.4
+  - @solana/accounts@2.0.0-preview.4
+  - @solana/programs@2.0.0-preview.4
+  - @solana/signers@2.0.0-preview.4
+  - @solana/sysvars@2.0.0-preview.4
+  - @solana/codecs@2.0.0-preview.4
+  - @solana/errors@2.0.0-preview.4
+  - @solana/keys@2.0.0-preview.4
+  - @solana/rpc@2.0.0-preview.4
+
 ## 2.0.0-preview.3
 
 ### Patch Changes
